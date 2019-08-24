@@ -11,7 +11,6 @@ local SpriteRenderer = require('nx/game/components/spriterenderer')
 
 local app = GameTemplate.new('Archery Practice',364,128)
 app.icon = 'app'
-app.iconName = 'Archery'
 
 function app:onStart(window,args)
     local drawstring = Actor.new('Drawstring')

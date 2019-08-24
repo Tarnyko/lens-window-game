@@ -11,7 +11,6 @@ local TurretBehavior = require('components/turret')
 
 local app = GameTemplate.new('Lens Test',250,250)
 app.icon = 'app'
-app.iconName = 'Lens Test'
 -- app.showInGames = false
 
 function app:onStart(window,args)

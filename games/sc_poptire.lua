@@ -15,7 +15,6 @@ local PopTireBehavior = require('components/poptire')
 
 local app = GameTemplate.new('Poptire',640,480)
 app.icon = 'app'
-app.iconName = 'Poptire'
 -- app.showInGames = false
 
 function app:onStart(window,args)

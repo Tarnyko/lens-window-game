@@ -10,7 +10,6 @@ local LoginScreen = require('system/loginscreen')
 
 local app = AppTemplate.new('Settings',240,280)
 app.icon = 'settings'
-app.iconName = 'Settings'
 app.enabledControlButtons = {true,false,true}
 app.allowResizing = false
 app.singleton = true

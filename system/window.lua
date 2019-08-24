@@ -24,7 +24,7 @@ function Window.new(title,width,height)
     self.pos = Vector.new()
     self.width = width
     self.height = height
-    self.title = title
+    self.title = localeLang:get(title .. '/name')
     self.enabledControlButtons = {true,true,true}
     self.allowResizing = self.enabledControlButtons[2]
     self.fullscreen = false

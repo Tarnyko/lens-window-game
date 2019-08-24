@@ -7,7 +7,6 @@ local UI = require('system/ui')
 
 local app = AppTemplate.new('Image Looker',600,600)
 app.icon = 'image'
-app.iconName = 'Image Viewer'
 app.allowResizing = false
 app.enabledControlButtons = {true,false,false}
 app.showOnDesktop = false

@@ -7,7 +7,6 @@ local Filesystem = require('system/filesystem')
 -- NOTEPAD
 local app = AppTemplate.new('TextBoy',400,500)
 app.icon = 'textboy'
-app.iconName = 'Textboy'
 app.behavior = {}
 
 -- window == self??

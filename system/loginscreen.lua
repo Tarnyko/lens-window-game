@@ -10,7 +10,8 @@ LoginScreen.OSLogo = love.graphics.newImage('images/wonders.png')
 function LoginScreen.new()
     local self = newObject(LoginScreen)
     self.UIElements = {
-        UI.button.new('Log In',0,0,LoginScreen.logInButtonPress)
+        UI.button.new(localeLang:get('LoginScreen/logInButton'),
+                        0,0,LoginScreen.logInButtonPress)
     }
     
     return self
@@ -49,7 +50,7 @@ function LoginScreen:draw()
     local UIRoot = Vector.new(screenWidth/2 + 10, screenHeight/2)
 
     love.graphics.setFont(LoginScreen.sideKickFont)
-    love.graphics.print('Welcome back!',UIRoot.x,UIRoot.y - 64)
+    love.graphics.print(localeLang:get('LoginScreen/logInBanner'),UIRoot.x,UIRoot.y - 64)
 
     for i,v in ipairs(self.UIElements) do
         v.pos = UIRoot:clone() + Vector.new(0,(i-1) * 26)

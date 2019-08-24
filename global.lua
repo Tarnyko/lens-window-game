@@ -1,6 +1,7 @@
 require('nx/util')
 require('nx/thirdparty')
 require('nx/update')
+require('i18n')
 local Apps = require('apps')
 local Window = require('system/window')
 local Timer = require('system/timer')
@@ -8,6 +9,7 @@ local Timer = require('system/timer')
 gScrollIncrement = Window.OSFont:getHeight() * 5
 gClickedThisFrame = false
 gDoubleClickedThisFrame = false
+localeLang = nil
 love.audio.setVolume(0.5)
 love.mouse.setVisible(false)
 love.keyboard.setKeyRepeat(true)

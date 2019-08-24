@@ -6,7 +6,6 @@ local Filesystem = require('system/filesystem')
 
 local app = AppTemplate.new('Lens',128,128)
 app.icon = 'lens'
-app.iconName = 'Lens'
 app.enabledControlButtons = {true,false,false}
 app.allowResizing = false
 app.singleton = true

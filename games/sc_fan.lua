@@ -11,7 +11,6 @@ local SpriteRenderer = require('nx/game/components/spriterenderer')
 
 local app = GameTemplate.new('Fan',200,400)
 app.icon = 'app'
-app.iconName = 'Fan'
 
 function app:onStart(window,args)
     local fan = Actor.new('Fan')

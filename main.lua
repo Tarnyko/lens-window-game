@@ -1,7 +1,9 @@
 require('global')
+require('lang')
 require('system/mouse')
 require('system/keyboard')
 
+local I18n = require('i18n')
 local Vector = require('nx/vector')
 local Window = require('system/window')
 local MenuBar = require('system/menubar')
@@ -13,6 +15,15 @@ local MousePointer = require('system/mousepointer')
 local LoginScreen = require('system/loginscreen')
 local Desktop = require('system/desktop')
 
+local langFolder = 'languages/'
+local langFiles = love.filesystem.getDirectoryItems(langFolder)
+for _,file in pairs(langFiles) do
+    if not love.filesystem.isDirectory(langFolder..file) then
+        localeLang:open(langFolder..file)
+    end
+end
+localeLang:set_fallback('en')
+
 mousePointer = MousePointer.new()
 local menuBar = MenuBar.new()
 local desktop = Desktop.new()
@@ -23,6 +34,9 @@ testw:close()
 
 function love.load(arg)
     State:load()
+    if arg[1] ~= nil then
+        localeLang:set_locale(arg[1])
+    end
 end
 
 function firstDraw()

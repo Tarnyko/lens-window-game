@@ -6,7 +6,6 @@ local Filesystem = require('system/filesystem')
 
 local app = AppTemplate.new('Alert',400,100)
 app.icon = 'warning'
-app.iconName = 'Alert'
 app.allowResizing = false
 app.enabledControlButtons = {true,false,false}
 app.showOnDesktop = false

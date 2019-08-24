@@ -15,6 +15,7 @@ function Desktop.new()
     -- Apps
     for i,name in ipairs(Apps.names) do
         local app = Apps[name]
+        app.iconName = localeLang:get(app.name .. '/iconName')
         if app.showOnDesktop ~= false then
             append(self.state.content,{name = app.iconName .. '.exe', app = name, icon=app.icon})
         end

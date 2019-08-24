@@ -6,7 +6,6 @@ local Filesystem = require('system/filesystem')
 
 local app = AppTemplate.new('File Locator',320,450)
 app.icon = 'locator'
-app.iconName = 'Locator'
 app.showOnDesktop = true
 
 local Explorer = app
@@ -23,12 +22,14 @@ function Explorer:onStart(window,args)
     if window.state.dir == 'Games' then
         for i,game in ipairs(getAllGames()) do
             if game.showInGames then
+                game.iconName = localeLang:get(game.name .. '/iconName')
                 append(window.state.content,{name = game.iconName .. '.exe', app = game.slug, icon = game.icon})
             end
         end
 
         for i,game in ipairs(getAllApps()) do
             if game.showInGames then
+                game.iconName = localeLang:get(game.name .. '/iconName')
                 append(window.state.content,{name = game.iconName .. '.exe', app = game.slug, icon = game.icon})
             end
         end
@@ -37,6 +38,7 @@ function Explorer:onStart(window,args)
     if window.state.dir == 'Desktop' then
         for i,app in ipairs(getAllApps()) do
             if app.showOnDesktop then
+                app.iconName = localeLang:get(app.name .. '/iconName')
                 append(window.state.content,{name = app.iconName .. '.exe', app = app.slug, icon = app.icon})
             end
         end
@@ -132,6 +134,15 @@ function drawIcons(state,selected,mp,desktop,self)
         local boundingBoxDim = Vector.new(iconSize + 10, iconSize + 16)
 
         local iconName = v.name
+
+        -- parse translation files
+        if (localeLang:get_locale() ~= 'en') then
+            local iconLocalePattern = 'Filesystem/' .. v.name
+            local iconLocaleName = localeLang:get(iconLocalePattern)
+            if iconLocaleName ~= iconLocalePattern then
+                iconName = iconLocaleName
+            end
+        end
         local nameWithoutExt,ext = unpack(iconName:split('.'))
 
         if ext == 'exe' then

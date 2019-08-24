@@ -11,7 +11,6 @@ local SpriteRenderer = require('nx/game/components/spriterenderer')
 
 local app = GameTemplate.new('Shadow',300,300)
 app.icon = 'app'
-app.iconName = 'Shadow'
 
 function app:onStart(window,args)
     local act = Actor.new('ShadowMan')
